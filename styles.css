@@ -1,0 +1,16 @@
+body {
+    font-family:'Gidole', sans-serif; 
+}
+
+
+h1, h2 {
+    font-family:'Winkey_Sans', sans-serif;
+}
+
+section.a1 {
+    background-color: red;
+}
+
+section.a2 {
+    background-color: blueviolet;
+}
