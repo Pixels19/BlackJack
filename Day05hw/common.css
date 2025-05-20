@@ -1,0 +1,40 @@
+body {
+    font-family: 'Gidole', sans-serif;
+    margin: 0;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+}
+
+header {
+    background-color: #333; /* Example background color */
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #555; /* Example background color */
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+#hero h1 {
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
