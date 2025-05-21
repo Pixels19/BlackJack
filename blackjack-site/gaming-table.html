@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Table</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-inter">
+
+    <header class="bg-gray-800 text-white p-4 shadow-md fixed top-0 left-0 w-full z-50">
+        <h1 class="text-3xl font-bold text-center mb-2">BlackJack Game</h1>
+        <nav>
+            <ul class="flex justify-center space-x-6">
+                <li><a href="index.html" class="hover:text-gray-300 transition-colors duration-200">Home</a></li>
+                <li><a href="about.html" class="hover:text-gray-300 transition-colors duration-200">About</a></li>
+                <li><a href="rules.html" class="hover:text-gray-300 transition-colors duration-200">Rules</a></li>
+                <li><a href="gaming-table.html" class="hover:text-gray-300 transition-colors duration-200">Table</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-6 mt-20 mb-16">
+        <section class="dealer-cards bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Dealer's Hand</h2>
+            <ul class="flex space-x-4">
+                <li class="bg-gray-200 p-3 rounded-md">King of Hearts</li>
+                <li class="bg-gray-200 p-3 rounded-md">8 of Diamonds</li>
+            </ul>
+        </section>
+
+        <section class="players-cards bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Player's Hand</h2>
+            <ul class="flex space-x-4">
+                <li class="bg-gray-200 p-3 rounded-md">10 of Clubs</li>
+                <li class="bg-gray-200 p-3 rounded-md">5 of Spades</li>
+            </ul>
+        </section>
+
+        <section id="betting" class="hidden bg-blue-100 rounded-lg shadow-lg p-6 mb-8 text-center">
+            <h3 class="text-xl font-medium mb-4">Place Your Bet!</h3>
+            <p class="text-lg mb-4">Your Bankroll: <span id="bankrollDisplay" class="font-bold text-green-700">$2022</span></p>
+            <div class="mb-6">
+                <label for="users-wager" class="block text-gray-700 text-sm font-bold mb-2">
+                    Enter Wager (whole dollars):
+                </label>
+                <input type="number" id="users-wager" min="1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500" placeholder="e.g., 100">
+            </div>
+            <button id="betButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Bet
+            </button>
+        </section>
+
+        <section id="playersActions" class="player-options bg-green-100 rounded-lg shadow-lg p-6">
+            <h3 class="text-xl font-medium mb-4">Player's Options</h3>
+            <dl class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div>
+                    <dt class="font-bold text-lg mb-1">Hit</dt>
+                    <dd class="text-gray-700">Take Another Card.</dd>
+                </div>
+                <div>
+                    <dt class="font-bold text-lg mb-1">Stand</dt>
+                    <dd class="text-gray-700">Keep Your Current Hand.</dd>
+                </div>
+                <div>
+                    <dt class="font-bold text-lg mb-1">Split</dt>
+                    <dd class="text-gray-700">Separate Two Matching Cards Into Different Hands.</dd>
+                </div>
+            </dl>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 text-center fixed bottom-0 left-0 w-full z-50">
+        <p id="copyright" class="text-xs">&copy; 2025 BlackJack Game</p>
+    </footer>
+
+</body>
+</html>
