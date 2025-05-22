@@ -1,105 +1,18 @@
 /* styles.css */
 
-/* General font styles (these can be moved to common.css if you prefer) */
-body {
-    font-family: 'Gidole', sans-serif;
-}
-
-h1, h2 {
-    font-family: 'Winkey_Sans', sans-serif;
-}
-
-/* Example styles for sections (you might have more or different classes) */
-section.a1 {
-    background-color: red;
-}
-
-section.a2 {
-    background-color: blueviolet;
-}
-
-/* Styles for the hero section on the homepage */
-#hero {
-    width: 100%;
-    height: 30vh;
-    display: flex; /* Example: to center content */
-    justify-content: center; /* Example: to center content horizontally */
-    align-items: center; /* Example: to center content vertically */
-    text-align: center; /* Example: to center text within */
-}
-
-#hero h1 {
-    font-size: 2em; /* Example size */
-}
-
-/* Styles for the whyUs section on the homepage */
-#whyUs {
-    width: 40%;
-    float: left;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-@media (max-width: 800px) {
-    #whyUs {
-        width: 100%;
-        float: none;
-    }
-}
-
-/* Styles for the callToAction section on the homepage */
-#callToAction {
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-#callToAction p {
-    margin-bottom: 15px;
-}
-
-#callToAction button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-@media (max-width: 800px) {
-    #callToAction {
-        width: 100%;
-    }
-}
-
-/* Navigation styles (these should ideally be in common.css if consistent across pages) */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-nav ul li a {
-    color: white; /* Adjusted for dark header background */
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-nav ul li a:hover {
-    opacity: 0.8;
-}
+/* Keep existing styles as before */
 
 /* Day 12 Specific Styles */
-/* This class will be toggled by JavaScript to hide/show sections */
 .hidden {
-    display: none !important; /* Use !important to ensure it overrides other display properties */
+    display: none !important;
 }
 
-/* Initial state for the betting section (hidden) */
 #betting {
-    display: none; /* This will be overridden by JS when .hidden is removed */
+    display: none;
 }
 
-/* Ensure #playersActions has an ID for JS targeting */
-/* It already has player-options class, but the instruction specifically mentioned #playersActions */
-/* No CSS needed here if it's visible by default */
+/* Optional: Add specific styles for the userStats section if not fully covered by Tailwind */
+/* #userStats {
+    border: 1px solid var(--color-light-gray);
+    margin-top: 20px;
+} */

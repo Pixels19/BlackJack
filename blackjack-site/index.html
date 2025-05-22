@@ -4,41 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackJack Game</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gidole&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Winkey_Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="data.js"></script>
+    <script type="module" src="index.js"></script>
 </head>
-<body>
-    <header>
+<body class="font-inter">
+    <header class="p-4 shadow-md fixed top-0 left-0 w-full z-50">
+        <h1 class="text-3xl font-bold text-center mb-2">BlackJack Game</h1>
         <nav>
-            <ul>
-                <li> <a href="index.html">Home</a></li>
-                <li> <a href="about.html">About</a></li>
-                <li> <a href="rules.html">Rules</a></li>
-                <link rel="stylesheet" href="common.css">
-                <li> <a href="gaming-table.html">Table</a></li>
+            <ul class="flex justify-center space-x-6">
+                <li> <a href="index.html" class="hover:text-red-500 transition-colors duration-200">Home</a></li>
+                <li> <a href="about.html" class="hover:text-red-500 transition-colors duration-200">About</a></li>
+                <li> <a href="rules.html" class="hover:text-red-500 transition-colors duration-200">Rules</a></li>
+                <li> <a href="gaming-table.html" class="hover:text-red-500 transition-colors duration-200">Table</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="hero">
-        <h1>Welcome to the Ultimate Blackjack Experience</h1>
-    </section>
+    <main class="container mx-auto p-6 mt-20 mb-16">
+        <section id="hero" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-light-gray);">
+            <h1 style="color: var(--color-primary-red);">Welcome, <span id="welcomeNickname">Player</span>, to the Ultimate Blackjack Experience!</h1>
+        </section>
 
-    <section id="whyUs">
-        <p>Why choose our Blackjack app? Because we offer the most realistic gameplay, exciting features, and a secure environment for all players. Experience the thrill of Blackjack like never before!</p>
-    </section>
+        <section id="nicknameSection" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-neutral-white);">
+            <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-neutral-black);">Set Your Nickname</h2>
+            <div class="mb-4">
+                <label for="nicknameInput" class="block text-sm font-bold mb-2" style="color: var(--color-dark-gray);">
+                    Current Nickname: <span id="nicknameDisplay" class="font-semibold text-red-500">Player</span>
+                </label>
+                <input type="text" id="nicknameInput" placeholder="Enter your nickname" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-red-500" style="color: var(--color-neutral-black); border-color: var(--color-dark-gray);">
+            </div>
+            <button id="saveNicknameButton" class="text-white font-bold py-2 px-4 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" style="background-color: var(--color-primary-red);">
+                Save Nickname
+            </button>
+        </section>
 
-    <section id="callToAction">
-        <p>Join now and test your luck. Win big and make Money!</p>
-        <button>Start Playing</button>
-    </section>
+        <section id="userStats" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-neutral-white);">
+            <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-primary-red);">Your Game Stats</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div>
+                    <p class="font-bold">Games Played:</p>
+                    <span id="gamesPlayed" class="text-lg">0</span>
+                </div>
+                <div>
+                    <p class="font-bold">Total Wagered:</p>
+                    <span id="totalWagered" class="text-lg">$0</span>
+                </div>
+                <div>
+                    <p class="font-bold">Wins:</p>
+                    <span id="wins" class="text-lg text-green-600">0</span>
+                </div>
+                <div>
+                    <p class="font-bold">Losses:</p>
+                    <span id="losses" class="text-lg text-red-600">0</span>
+                </div>
+                <div>
+                    <p class="font-bold">Win Ratio:</p>
+                    <span id="winRatio" class="text-lg">N/A</span>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 BlackJack Game</p>
+        <section id="whyUs" class="bg-white rounded-lg shadow-lg p-6 mb-8" style="background-color: var(--color-neutral-white);">
+            <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-neutral-black);">Why Play With Us?</h2>
+            <p style="color: var(--color-dark-gray);">Why choose our Blackjack app? Because we offer the most realistic gameplay, exciting features, and a secure environment for all players. Experience the thrill of Blackjack like never before!</p>
+        </section>
+
+        <section id="callToAction" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-neutral-black); color: var(--color-neutral-white);">
+            <p class="text-lg mb-4">Join now and test your luck. Win big and make Money!</p>
+            <button id="startPlayingButton" class="text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" style="background-color: var(--color-primary-red);">
+                Start Playing
+            </button>
+        </section>
+    </main>
+
+    <footer class="p-4 text-center fixed bottom-0 left-0 w-full z-50">
+        <p id="copyright" class="text-xs">&copy; 2025 BlackJack Game</p>
     </footer>
 </body>
 </html>

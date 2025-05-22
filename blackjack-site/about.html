@@ -5,9 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Blackjack Game</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="about.css"> </head>
-<body>
-    </body>
+    <link rel="stylesheet" href="about.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-inter">
+
+    <header class="p-4 shadow-md fixed top-0 left-0 w-full z-50">
+        <h1 class="text-3xl font-bold text-center mb-2">BlackJack Game</h1>
+        <nav>
+            <ul class="flex justify-center space-x-6">
+                <li><a href="index.html" class="hover:text-red-500 transition-colors duration-200">Home</a></li>
+                <li><a href="about.html" class="hover:text-red-500 transition-colors duration-200">About</a></li>
+                <li><a href="rules.html" class="hover:text-red-500 transition-colors duration-200">Rules</a></li>
+                <li><a href="gaming-table.html" class="hover:text-red-500 transition-colors duration-200">Table</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-6 mt-20 mb-16">
+        <section id="about-intro" class="mb-8 p-6 rounded-lg shadow-lg" style="background-color: var(--color-neutral-white);">
+            <h1 class="text-4xl font-bold mb-4" style="color: var(--color-primary-red);">About Our Blackjack Experience</h1>
+            <p class="text-lg" style="color: var(--color-neutral-black);">Welcome to the ultimate destination for online Blackjack enthusiasts! We are dedicated to providing a thrilling, fair, and engaging gaming environment where you can test your skills, challenge the dealer, and aim for big wins.</p>
+        </section>
+
+        <section id="about-details" class="mb-8 p-6 rounded-lg shadow-lg" style="background-color: var(--color-neutral-white);">
+            <div class="image-container">
+                <img src="https://placehold.co/400x250/2C3E50/FFFFFF?text=Our+Team" alt="Our Team" class="rounded-lg shadow-md w-full h-auto object-cover">
+            </div>
+            <div class="description">
+                <h2 class="text-2xl font-semibold mb-3" style="color: var(--color-neutral-black);">Who We Are</h2>
+                <p class="mb-4" style="color: var(--color-dark-gray);">We are a passionate team of game developers and Blackjack aficionados committed to delivering a top-tier online casino experience. Our goal is to blend classic casino excitement with modern web technology, ensuring a seamless and enjoyable game for players of all levels.</p>
+                <p style="color: var(--color-dark-gray);">From intuitive controls to realistic gameplay mechanics, every aspect of our Blackjack site is crafted with the player in mind. We believe in transparency, fair play, and continuous improvement based on user feedback.</p>
+            </div>
+        </section>
+
+        <section id="our-mission" class="mb-8 p-6 rounded-lg shadow-lg" style="background-color: var(--color-neutral-white);">
+            <h2 class="text-3xl font-bold mb-4 text-center" style="color: var(--color-primary-red);">Our Mission</h2>
+            <p class="text-lg text-center" style="color: var(--color-neutral-black);">Our mission is to become the leading online Blackjack platform, known for its engaging gameplay, robust features, and a vibrant community. We strive to innovate constantly, providing new ways to enjoy the timeless game of Blackjack while maintaining the highest standards of security and user experience.</p>
+            <p class="text-lg text-center mt-4" style="color: var(--color-neutral-black);">Join us on this journey as we build the future of online card gaming, one hand at a time!</p>
+        </section>
+    </main>
+
+    <footer class="p-4 text-center fixed bottom-0 left-0 w-full z-50">
+        <p id="copyright" class="text-xs">&copy; 2025 BlackJack Game</p>
+    </footer>
+
+</body>
 </html>

@@ -3,80 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Table</title>
+    <title>BlackJack Game</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gidole&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Winkey_Sans&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js" defer></script>
+    <script type="module" src="data.js"></script>
+    <script type="module" src="index.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-800 font-inter">
-
-    <header class="bg-gray-800 text-white p-4 shadow-md fixed top-0 left-0 w-full z-50">
+<body class="font-inter">
+    <header class="p-4 shadow-md fixed top-0 left-0 w-full z-50">
         <h1 class="text-3xl font-bold text-center mb-2">BlackJack Game</h1>
         <nav>
             <ul class="flex justify-center space-x-6">
-                <li><a href="index.html" class="hover:text-gray-300 transition-colors duration-200">Home</a></li>
-                <li><a href="about.html" class="hover:text-gray-300 transition-colors duration-200">About</a></li>
-                <li><a href="rules.html" class="hover:text-gray-300 transition-colors duration-200">Rules</a></li>
-                <li><a href="gaming-table.html" class="hover:text-gray-300 transition-colors duration-200">Table</a></li>
+                <li> <a href="index.html" class="hover:text-red-500 transition-colors duration-200">Home</a></li>
+                <li> <a href="about.html" class="hover:text-red-500 transition-colors duration-200">About</a></li>
+                <li> <a href="rules.html" class="hover:text-red-500 transition-colors duration-200">Rules</a></li>
+                <li> <a href="gaming-table.html" class="hover:text-red-500 transition-colors duration-200">Table</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container mx-auto p-6 mt-20 mb-16">
-        <section class="dealer-cards bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Dealer's Hand</h2>
-            <ul class="flex space-x-4">
-                <li class="bg-gray-200 p-3 rounded-md">King of Hearts</li>
-                <li class="bg-gray-200 p-3 rounded-md">8 of Diamonds</li>
-            </ul>
+        <section id="hero" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-light-gray);">
+            <h1 style="color: var(--color-primary-red);">Welcome, <span id="welcomeNickname">Player</span>, to the Ultimate Blackjack Experience!</h1>
         </section>
 
-        <section class="players-cards bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Player's Hand</h2>
-            <ul class="flex space-x-4">
-                <li class="bg-gray-200 p-3 rounded-md">10 of Clubs</li>
-                <li class="bg-gray-200 p-3 rounded-md">5 of Spades</li>
-            </ul>
-        </section>
-
-        <section id="betting" class="hidden bg-blue-100 rounded-lg shadow-lg p-6 mb-8 text-center">
-            <h3 class="text-xl font-medium mb-4">Place Your Bet!</h3>
-            <p class="text-lg mb-4">Your Bankroll: <span id="bankrollDisplay" class="font-bold text-green-700">$2022</span></p>
-            <div class="mb-6">
-                <label for="users-wager" class="block text-gray-700 text-sm font-bold mb-2">
-                    Enter Wager (whole dollars):
+        <section id="nicknameSection" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-neutral-white);">
+            <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-neutral-black);">Set Your Nickname</h2>
+            <div class="mb-4">
+                <label for="nicknameInput" class="block text-sm font-bold mb-2" style="color: var(--color-dark-gray);">
+                    Current Nickname: <span id="nicknameDisplay" class="font-semibold text-red-500">Player</span>
                 </label>
-                <input type="number" id="users-wager" min="1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500" placeholder="e.g., 100">
+                <input type="text" id="nicknameInput" placeholder="Enter your nickname" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-red-500" style="color: var(--color-neutral-black); border-color: var(--color-dark-gray);">
             </div>
-            <button id="betButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                Bet
+            <button id="saveNicknameButton" class="text-white font-bold py-2 px-4 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" style="background-color: var(--color-primary-red);">
+                Save Nickname
             </button>
         </section>
 
-        <section id="playersActions" class="player-options bg-green-100 rounded-lg shadow-lg p-6">
-            <h3 class="text-xl font-medium mb-4">Player's Options</h3>
-            <dl class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        <section id="userStats" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-neutral-white);">
+            <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-primary-red);">Your Game Stats</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div>
-                    <dt class="font-bold text-lg mb-1">Hit</dt>
-                    <dd class="text-gray-700">Take Another Card.</dd>
+                    <p class="font-bold">Games Played:</p>
+                    <span id="gamesPlayed" class="text-lg">0</span>
                 </div>
                 <div>
-                    <dt class="font-bold text-lg mb-1">Stand</dt>
-                    <dd class="text-gray-700">Keep Your Current Hand.</dd>
+                    <p class="font-bold">Total Wagered:</p>
+                    <span id="totalWagered" class="text-lg">$0</span>
                 </div>
                 <div>
-                    <dt class="font-bold text-lg mb-1">Split</dt>
-                    <dd class="text-gray-700">Separate Two Matching Cards Into Different Hands.</dd>
+                    <p class="font-bold">Wins:</p>
+                    <span id="wins" class="text-lg text-green-600">0</span>
                 </div>
-            </dl>
+                <div>
+                    <p class="font-bold">Losses:</p>
+                    <span id="losses" class="text-lg text-red-600">0</span>
+                </div>
+                <div>
+                    <p class="font-bold">Win Ratio:</p>
+                    <span id="winRatio" class="text-lg">N/A</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="whyUs" class="bg-white rounded-lg shadow-lg p-6 mb-8" style="background-color: var(--color-neutral-white);">
+            <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-neutral-black);">Why Play With Us?</h2>
+            <p style="color: var(--color-dark-gray);">Why choose our Blackjack app? Because we offer the most realistic gameplay, exciting features, and a secure environment for all players. Experience the thrill of Blackjack like never before!</p>
+        </section>
+
+        <section id="callToAction" class="bg-white rounded-lg shadow-lg p-6 mb-8 text-center" style="background-color: var(--color-neutral-black); color: var(--color-neutral-white);">
+            <p class="text-lg mb-4">Join now and test your luck. Win big and make Money!</p>
+            <button id="startPlayingButton" class="text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" style="background-color: var(--color-primary-red);">
+                Start Playing
+            </button>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white p-4 text-center fixed bottom-0 left-0 w-full z-50">
+    <footer class="p-4 text-center fixed bottom-0 left-0 w-full z-50">
         <p id="copyright" class="text-xs">&copy; 2025 BlackJack Game</p>
     </footer>
-
 </body>
 </html>
