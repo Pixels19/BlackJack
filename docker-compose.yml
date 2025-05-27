@@ -1,0 +1,46 @@
+# docker-compose.yml
+version: '3.8' # Specify the Docker Compose file format version
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:latest # Use the official MongoDB image from Docker Hub
+    container_name: blackjack_mongodb
+    ports:
+      - "27017:27017" # Map host port 27017 to container port 27017
+    volumes:
+      - mongodb_data:/data/db # Mount a named volume for persistent data
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    restart: unless-stopped # Always restart unless explicitly stopped
+
+  # Backend Service
+  backend:
+    build: ./blackjack-backend # Build the image from the Dockerfile in blackjack-backend folder
+    container_name: blackjack_backend_api
+    ports:
+      - "3001:3001" # Map host port 3001 to container port 3001
+    environment:
+      # Pass environment variables to the backend container
+      # The MONGODB_URI uses 'mongodb' as the hostname because that's the service name in docker-compose
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/blackjack_db?authSource=admin
+      PORT: 3001
+    depends_on:
+      - mongodb # Ensure MongoDB starts before the backend
+    restart: unless-stopped # Restart unless explicitly stopped
+    # If you want to see nodemon restarts in Docker logs (instead of just 'npm start'):
+    # command: npm run dev # Uncomment this if your package.json has a 'dev' script for nodemon
+  # Frontend Service
+  frontend:
+    build: ./blackjack-frontend
+    container_name: blackjack_frontend_app
+    ports:
+      - "5173:80" # <<< CHANGE THIS LINE: Map host 5173 to container port 80
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+# Define named volumes for persistent data
+volumes:
+  mongodb_data:
