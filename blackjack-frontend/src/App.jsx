@@ -22,7 +22,7 @@ function App() {
       setMessage('Fetching players...');
       const response = await fetch(`${API_BASE_URL}/players`);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`); // Corrected: removed "new" keyword before Error
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
       setPlayers(data);
@@ -187,3 +187,4 @@ function App() {
 }
 
 export default App;
+

@@ -1,0 +1,13 @@
+# Node.js dependencies
+node_modules/
+
+# Docker stuff
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# IDE-specific files
+.idea/
+
+# Frontend build output
+blackjack-frontend/dist/
