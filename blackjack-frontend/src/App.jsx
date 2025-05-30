@@ -14,7 +14,7 @@ function App() {
   // When running the frontend in your browser (localhost:5173),
   // the browser directly makes API calls to your backend (localhost:3001).
   // The 'backend' service name is for inter-container communication only.
-  const API_BASE_URL = 'http://localhost:3001/api';
+  const API_BASE_URL = 'http://localhost:3001/api'; 
 
   // --- Function to fetch all players ---
   const fetchPlayers = async () => {

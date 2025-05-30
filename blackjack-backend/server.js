@@ -4,10 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors'); // Import the cors middleware
 
 const app = express();
-const PORT = process.env.PORT || 3001; // Backend server port
-// IMPORTANT: For Docker Compose, the MONGODB_URI should use the service name 'mongodb'
+const PORT = process.env.PORT || 3001; // Backend server port'
 // from your docker-compose.yml, not 'localhost'.
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://mongodb:27017/blackjack_db';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/sample_db';
 
 // --- Middleware ---
 // Parse JSON request bodies
@@ -17,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // --- Database Connection ---
-mongoose.connect(MONGODB_URI)
+mongoose.connect('mongodb://localhost:27017/sample_db')
   .then(() => console.log('MongoDB Connected successfully!'))
   .catch(err => console.error('MongoDB connection error:', err));
 
