@@ -1,42 +1,217 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* blackjack-frontend/src/App.css */
+
+body {
+  background-color: #222; /* Dark background for the entire page */
+  color: #eee; /* Light text color */
+  margin: 0; /* Remove default body margin */
+  display: flex; /* Enable flexbox for the body */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  /* overflow: auto; /* Allow scrolling if content overflows */
+}
+
+/* Adjust the .App container */
+.App {
+  font-family: 'Inter', sans-serif;
+  max-width: 900px;
+  /* Remove margin: 20px auto; as body flexbox will center it */
+  padding: 20px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: #333;
+  /* Ensure app itself can scroll if content inside is too long */
+  max-height: 95vh; /* Limit height to prevent overflow, leave some space */
+  overflow-y: auto; /* Add scrollbar only if content exceeds max-height */
+}
+
+h1, h2 {
+  color: #f0f0f0; /* Lighter headings */
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+p {
+  color: #ccc; /* Slightly lighter text for paragraphs */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+hr {
+  border: 0;
+  height: 1px;
+  background: #555; /* Darker separator */
+  margin: 30px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button {
+  padding: 12px 20px; /* Slightly larger buttons */
+  margin: 5px;
+  border: none;
+  border-radius: 8px; /* Rounded corners for buttons */
+  background-color: #555; /* Darker button color */
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
-.card {
-  padding: 2em;
+button:hover {
+  background-color: #666; /* Lighter on hover */
+  transform: translateY(-1px); /* Slight lift effect */
 }
 
-.read-the-docs {
+button:disabled {
+  background-color: #444;
   color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
 }
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #555; /* Darker border */
+  border-radius: 6px; /* Rounded corners */
+  background-color: #444; /* Dark input background */
+  color: #eee; /* Light input text */
+  width: calc(100% - 120px);
+  max-width: 280px; /* Slightly wider inputs */
+}
+
+label {
+  display: inline-block;
+  width: 120px; /* Adjust width for alignment */
+  text-align: right;
+  margin-right: 15px;
+  color: #ccc;
+}
+
+form div {
+  margin-bottom: 15px; /* More spacing for forms */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align form elements to start */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #444; /* Dark background for list items */
+  color: #eee; /* Light text for list items */
+  padding: 15px; /* More padding */
+  margin-bottom: 10px;
+  border-radius: 8px; /* Rounded corners */
+  display: flex;
+  flex-direction: column; /* Stack content for history */
+  justify-content: space-between;
+  align-items: flex-start; /* Align text to left */
+  border: 1px solid #555; /* Subtle border */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+li p {
+  margin: 5px 0; /* Spacing for paragraphs in list items */
+  color: #ccc;
+}
+
+li strong {
+  color: #fff; /* White for strong text */
+}
+
+/* --- Tab Styling --- */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #555; /* Darker border for tab line */
+}
+
+.tabs button {
+  background-color: #444; /* Darker tab background */
+  color: #ccc; /* Lighter text for inactive tabs */
+  border: 1px solid #555;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0; /* More rounded corners */
+  padding: 12px 25px; /* Larger tab buttons */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0 2px; /* Small gap between tabs */
+}
+
+.tabs button:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.tabs button.active-tab {
+  background-color: #007bff; /* Keep a distinct blue for active tab */
+  color: white;
+  border-color: #007bff;
+  border-bottom: 2px solid #007bff; /* Active tab underline */
+  box-shadow: 0 -2px 5px rgba(0, 123, 255, 0.3); /* Glow effect for active tab */
+}
+
+.tab-content {
+  padding: 20px 0;
+  display: flex;          /* Enable flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center;    /* Center children horizontally */
+  width: 100%;            /* Ensure it takes full width */
+}
+
+/* You might also want to center the forms within the tab-content if they are not already */
+.tab-content form {
+    width: 100%; /* Ensure form takes full width to allow internal centering */
+    max-width: 500px; /* Optional: limit form width for better readability */
+    margin-bottom: 20px; /* Add some space below forms */
+}
+
+/* Adjust form div to center its content */
+form div {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content within each form row */
+}
+
+/* Adjust the labels to be left-aligned within their flex container */
+label {
+  width: 120px;
+  text-align: right;
+  margin-right: 15px;
+  color: #ccc;
+  /* Ensure label itself doesn't stretch */
+  flex-shrink: 0;
+}
+
+/* Ensure inputs take up remaining space but don't overflow */
+input[type="text"],
+input[type="number"],
+select {
+    flex-grow: 1; /* Allow input to grow */
+    max-width: 280px; /* Keep max-width for readability */
+}
+
+/* Center the buttons within the tab-content */
+.tab-content button {
+    margin: 10px auto; /* Center buttons horizontally */
+    display: block; /* Make button a block element to apply margin: auto */
+}
+
+/* Specific adjustment for the card display to center it */
+.card-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center; /* This already centers cards within their line */
+    margin-top: 15px;
+    width: 100%; /* Ensure it takes full width to be centered by parent */
+}
+
